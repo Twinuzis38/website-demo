@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Involved - Equity & Health Literacy Project</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .get-involved-content {
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            line-height: 1.8;
+        }
+
+        .get-involved-content p {
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            color: #2c3e50;
+            text-align: justify;
+        }
+
+        .get-involved-content h2 {
+            color: #0066cc;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            text-align: center;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .get-involved-content h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, #0066cc, #00cc99);
+            border-radius: 2px;
+        }
+
+        .get-involved-content h3 {
+            color: #0066cc;
+            margin: 3rem 0 2rem;
+            font-size: 1.8rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .opportunities-list {
+            list-style-type: none;
+            padding: 2.5rem;
+            text-align: left;
+            max-width: 800px;
+            margin: 2rem auto;
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 102, 204, 0.1);
+        }
+
+        .opportunities-list li {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.3rem;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        .opportunities-list li:before {
+            content: "•";
+            color: #0066cc;
+            position: absolute;
+            left: 0;
+            font-size: 1.6rem;
+            font-weight: bold;
+        }
+
+        .opportunities-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-link {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            background: rgba(0, 102, 204, 0.1);
+        }
+
+        .contact-link:hover {
+            color: #00cc99;
+            background: rgba(0, 204, 153, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .application-section {
+            background: linear-gradient(145deg, #f8f9fa, #ffffff);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 102, 204, 0.1);
+            text-align: center;
+        }
+
+        .application-section p {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .application-form {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: #0066cc;
+            box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);
+            outline: none;
+        }
+
+        .submit-button {
+            background: linear-gradient(to right, #0066cc, #00cc99);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .get-involved-content {
+                padding: 0 1rem;
+            }
+
+            .opportunities-list {
+                padding: 1.5rem;
+            }
+
+            .opportunities-list li {
+                font-size: 1.1rem;
+            }
+
+            .application-section {
+                padding: 2rem 1rem;
+            }
+        }
+
+        .intro-box {
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 2rem 0 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 102, 204, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .intro-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, #0066cc, #00cc99);
+        }
+
+        .intro-box p:first-child {
+            font-size: 1.5rem;
+            color: #0066cc;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .intro-box p {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            color: #2c3e50;
+            line-height: 1.8;
+        }
+
+        .intro-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .intro-box {
+                padding: 2rem;
+            }
+
+            .intro-box p:first-child {
+                font-size: 1.3rem;
+            }
+
+            .intro-box p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Equity & Health Literacy Project</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li class="dropdown">
+                    <a href="navigating-health.html">Navigating Health In Ontario</a>
+                    <ul class="dropdown-content">
+                        <li><a href="financial-barriers.html">Financial Barriers</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="programs.html">Programs</a>
+                    <ul class="dropdown-content">
+                        <li><a href="pamphlet-distribution.html">Pamphlet Distribution</a></li>
+                    </ul>
+                </li>
+                <li><a href="research.html">Research and Advocacy</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="get-involved.html">Get Involved</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="get-involved">
+            <div class="container">
+                <h2>Get Involved</h2>
+                <div class="involvement-content">
+                    <p>
+                        Join us in making health education more equitable, inclusive, and accessible for all. The Equity & Health Literacy Project (EHLP) is powered by dedicated volunteers who bring language skills, lived experience, and passion for community care. Whether you're interested in translation, workshop facilitation, outreach, or content creation—there's a place for you on our team.
+                    </p>
+                    <p>
+                        We're currently accepting applications for volunteers and collaborators who want to support our mission. Opportunities range from one-time event support to ongoing program roles.
+                    </p>
+                    <div class="involvement-cta">
+                        <a href="contact.html" class="cta-button">Become a Volunteer!</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="page-header">
+                <h3>Ways to Get Involved:</h3>
+            </div>
+            <div class="get-involved-content">
+                <ul class="opportunities-list">
+                    <li><strong>Translation & Content Creation:</strong> Help us develop and translate health education materials into different languages. We need writers, editors, and translators who can make complex health information clear and accessible.</li>
+                    <li><strong>Workshop Facilitation:</strong> Lead or assist with health literacy workshops in your community. Share your expertise and help others understand important health information.</li>
+                    <li><strong>Community Outreach:</strong> Help us connect with communities and spread awareness about our programs and resources.</li>
+                    <li><strong>Research & Evaluation:</strong> Contribute to our understanding of health literacy needs and program effectiveness through data collection and analysis.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#">Twitter</a>
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Equity & Health Literacy Project. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 

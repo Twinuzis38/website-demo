@@ -168,3 +168,31 @@ window.addEventListener('resize', () => {
         document.querySelector('.nav-links').classList.remove('show');
     }
 }); 
+
+// Handle dropdown menus in mobile view
+const handleDropdowns = () => {
+    const dropdowns = document.querySelectorAll('.dropdown');
+    
+    dropdowns.forEach(dropdown => {
+        const link = dropdown.querySelector('a');
+        
+        link.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                dropdown.classList.toggle('active');
+            }
+        });
+    });
+};
+
+// Initialize dropdowns
+handleDropdowns();
+
+// Update dropdowns on window resize
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+            dropdown.classList.remove('active');
+        });
+    }
+}); 

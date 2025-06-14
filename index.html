@@ -3,209 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Equity & Health Literacy Project</title>
+    <title>Home - Equity & Health Literacy Project</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .dropdown-content li {
+            list-style: none;
+        }
+        
+        .dropdown-content {
+            list-style: none;
+        }
+
+        .dropdown-content a {
+            text-decoration: none;
+        }
+        
+        .motto-box {
+            background: linear-gradient(135deg, #0066cc, #00cc99, #40e0d0);
+            padding: 4rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 3rem auto;
+            max-width: 800px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .motto-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+            pointer-events: none;
+        }
+
+        .motto-box h3 {
+            color: white;
+            font-size: 3.5rem;
+            margin: 0;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            font-weight: 700;
+            letter-spacing: 2px;
+            line-height: 1.3;
+            position: relative;
+        }
+
+        .motto-box p {
+            color: white;
+            font-size: 1.5rem;
+            margin: 1.5rem 0 0 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        .content {
+            padding: 2rem;
+        }
+
+        .content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #333;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <header>
         <nav>
             <div class="logo">Equity & Health Literacy Project</div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#services">Our Programs</a></li>
-                <li><a href="#resources">Health Resources</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li class="dropdown">
+                    <a href="navigating-health.html">Navigating Health In Ontario</a>
+                    <ul class="dropdown-content">
+                        <li><a href="financial-barriers.html">Financial Barriers</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="programs.html">Programs</a>
+                    <ul class="dropdown-content">
+                        <li><a href="pamphlet-distribution.html">Pamphlet Distribution</a></li>
+                    </ul>
+                </li>
+                <li><a href="research.html">Research and Advocacy</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="get-involved.html">Get Involved</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="home" class="hero">
-            <h1>Equity & Health Literacy Project</h1>
-            <p>Bridging language and cultural barriers to ensure equitable healthcare access for immigrant communities.</p>
-            <a href="#contact" class="cta-button">Get Involved</a>
+        <section class="hero">
+            <h1>Welcome to the Equity & Health Literacy Project</h1>
+            <p>Empowering communities through accessible health education and support.</p>
+            <a href="about.html" class="cta-button">Learn More</a>
         </section>
 
-        <section id="about" class="about">
-            <h2 class="fade-in">About Us</h2>
-            <div class="about-content">
-                <div class="about-left">
-                    <div class="mission-statement slide-in-left">
-                        <h3>Our Mission</h3>
-                        <p>The Equity & Health Literacy Project (E&HLP) aims to improve healthcare literacy, accessibility, and equity for immigrant, marginalized, and racialized communities. We will do this through tailored informational pamphlets, workshops, and digital content.</p>
-                    </div>
-                    
-                    <div class="goals-section fade-in">
-                        <h3>Our Goals</h3>
-                        <div class="goals-grid">
-                            <div class="goal-item scale-in">
-                                <span class="goal-icon">🎯</span>
-                                <h4>OTF Grant</h4>
-                            </div>
-                            <div class="goal-item scale-in">
-                                <span class="goal-icon">🔬</span>
-                                <h4>Research</h4>
-                            </div>
-                            <div class="goal-item scale-in">
-                                <span class="goal-icon">🏢</span>
-                                <h4>Non-profit Status</h4>
-                            </div>
-                            <div class="goal-item scale-in">
-                                <span class="goal-icon">📋</span>
-                                <h4>Policy Change</h4>
-                            </div>
-                            <div class="goal-item scale-in">
-                                <span class="goal-icon">📅</span>
-                                <h4>Regular Events</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="about-right">
-                    <div class="overview-content slide-in-right">
-                        <h3>Overview</h3>
-                        <p>E&HLP is committed to improving healthcare literacy, accessibility, and equity for immigrant, marginalized, and racialized communities. The organization plans to achieve this through tailored informational pamphlets, workshops, and digital content, including social media, newsletters, and blog posts.</p>
-                        
-                        <div class="timeline">
-                            <div class="timeline-item fade-in">
-                                <h4>Short-term Goals</h4>
-                                <ul>
-                                    <li>Finalizing two pamphlet designs and piloting distribution</li>
-                                    <li>Launching a fully functional website with blog posts</li>
-                                    <li>Establishing consistent social media presence</li>
-                                </ul>
-                            </div>
-                            <div class="timeline-item fade-in">
-                                <h4>Long-term Objectives</h4>
-                                <ul>
-                                    <li>Securing an OTF grant</li>
-                                    <li>Conducting research</li>
-                                    <li>Incorporating as a nonprofit</li>
-                                    <li>Making tangible policy changes</li>
-                                    <li>Running ongoing workshops and outreach</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="team-section fade-in">
-                        <h3>Our Team Structure</h3>
-                        <div class="team-grid">
-                            <div class="team-card scale-in">
-                                <span class="team-icon">📊</span>
-                                <h4>Data Collection Team</h4>
-                                <p>Research resources for pamphlets, distribution locations, and blog content</p>
-                            </div>
-                            <div class="team-card scale-in">
-                                <span class="team-icon">✍️</span>
-                                <h4>Writing Team</h4>
-                                <p>Develop content for blogs, pamphlets, and website sections</p>
-                            </div>
-                            <div class="team-card scale-in">
-                                <span class="team-icon">📱</span>
-                                <h4>Social Media Team</h4>
-                                <p>Marketing and maintaining digital presence</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <section class="motto-section">
+            <h2 class="motto-title">Health Literacy For Every Life</h2>
+            <p class="motto-subtitle">Empowering communities through accessible health education and support.</p>
         </section>
 
-        <section id="services" class="services">
-            <h2 class="fade-in">Our Programs</h2>
-            <div class="services-grid">
-                <div class="service-card slide-in-left">
-                    <h3>Health Education Workshops</h3>
-                    <p>Multilingual workshops covering essential health topics and healthcare system navigation.</p>
+        <section class="about">
+            <div class="content-container">
+                <div class="motto-box">
+                    <h3>Health Literacy For Every Life</h3>
+                    <p>Empowering communities through accessible health education and support.</p>
                 </div>
-                <div class="service-card slide-in-right">
-                    <h3>Language Support Services</h3>
-                    <p>Professional interpretation and translation services for healthcare communication.</p>
-                </div>
-                <div class="service-card slide-in-left">
-                    <h3>Cultural Competency Training</h3>
-                    <p>Training programs for healthcare providers to better serve immigrant communities.</p>
-                </div>
-                <div class="service-card slide-in-right">
-                    <h3>Community Outreach</h3>
-                    <p>Engagement programs to connect immigrant communities with healthcare resources.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="resources" class="resources">
-            <h2 class="fade-in">Health Resources Hub</h2>
-            <div class="resources-grid">
-                <div class="resource-card scale-in">
-                    <h3>Multilingual Guides</h3>
-                    <p>Healthcare system navigation guides in multiple languages.</p>
-                    <a href="#" class="resource-link">Access Guides</a>
-                </div>
-                <div class="resource-card scale-in">
-                    <h3>Health Literacy Materials</h3>
-                    <p>Educational materials designed for various literacy levels.</p>
-                    <a href="#" class="resource-link">View Materials</a>
-                </div>
-                <div class="resource-card scale-in">
-                    <h3>Community Resources</h3>
-                    <p>Directory of immigrant-friendly healthcare providers and services.</p>
-                    <a href="#" class="resource-link">Find Resources</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="blog" class="blog">
-            <h2 class="fade-in">Latest Insights</h2>
-            <div class="blog-grid">
-                <article class="blog-card slide-in-left">
-                    <div class="blog-image"></div>
-                    <div class="blog-content">
-                        <h3>Understanding Healthcare Rights</h3>
-                        <p>Essential information about immigrant healthcare rights and access.</p>
-                        <a href="#" class="read-more">Read More</a>
-                    </div>
-                </article>
-                <article class="blog-card slide-in-right">
-                    <div class="blog-image"></div>
-                    <div class="blog-content">
-                        <h3>Cultural Competency in Healthcare</h3>
-                        <p>How cultural understanding improves healthcare outcomes.</p>
-                        <a href="#" class="read-more">Read More</a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <section id="contact" class="contact">
-            <h2 class="fade-in">Contact Us</h2>
-            <div class="contact-container">
-                <div class="contact-info slide-in-left">
-                    <h3>Get in Touch</h3>
-                    <p>Join us in making healthcare accessible for all.</p>
-                    <div class="contact-details">
-                        <p>Email: info@immigranthealth.org</p>
-                        <p>Phone: (555) 123-4567</p>
-                        <p>Address: 123 Community Center Ave, City, State 12345</p>
-                    </div>
-                </div>
-                <form id="contact-form" class="slide-in-right">
-                    <input type="text" placeholder="Name" required>
-                    <input type="email" placeholder="Email" required>
-                    <input type="tel" placeholder="Phone">
-                    <select required>
-                        <option value="">Select Program</option>
-                        <option value="education">Health Education</option>
-                        <option value="language">Language Support</option>
-                        <option value="training">Cultural Training</option>
-                        <option value="outreach">Community Outreach</option>
-                    </select>
-                    <textarea placeholder="Message" required></textarea>
-                    <button type="submit">Send Message</button>
-                </form>
             </div>
         </section>
     </main>
@@ -213,26 +125,11 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>Equity & Health Literacy Project</h3>
-                <p>Empowering communities through health education and support.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Programs</a></li>
-                    <li><a href="#resources">Resources</a></li>
-                    <li><a href="#blog">Blog</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Connect With Us</h3>
+                <h3>Follow Us</h3>
                 <div class="social-links">
-                    <a href="#" class="social-link">LinkedIn</a>
-                    <a href="#" class="social-link">Twitter</a>
-                    <a href="#" class="social-link">Facebook</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
                 </div>
             </div>
         </div>
