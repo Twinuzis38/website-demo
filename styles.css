@@ -457,6 +457,12 @@ nav {
 }
 
 .header-logo img {
+    max-width: 64px;
+    width: 64px;
+    height: 64px;
+    margin-left: -32px;
+    border-radius: 50%;
+    object-fit: cover;
     background: transparent;
 }
 
@@ -902,6 +908,12 @@ nav {
 }
 
 .header-logo img {
+    max-width: 64px;
+    width: 64px;
+    height: 64px;
+    margin-left: -32px;
+    border-radius: 50%;
+    object-fit: cover;
     background: transparent;
 }
 
@@ -3389,5 +3401,155 @@ h4 {
     .team-photo {
         width: 150px;
         height: 150px;
+    }
+}
+
+/* Enhanced Mobile Styles */
+@media (max-width: 768px) {
+    /* General text sizing for mobile */
+    body {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    /* Header adjustments */
+    .header-logo {
+        padding: 0.5rem;
+    }
+
+    .header-logo img {
+        width: 48px;
+        height: 48px;
+        margin-left: 0;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    /* Navigation improvements */
+    .nav-links {
+        background: white;
+        width: 100%;
+        padding: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links li {
+        margin: 0.8rem 0;
+    }
+
+    /* Content spacing */
+    .content {
+        padding: 1rem;
+        margin-top: 1rem;
+    }
+
+    .page-header {
+        padding: 1rem 0;
+    }
+
+    /* Team grid adjustments */
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0.5rem;
+    }
+
+    .team-member {
+        margin: 0.5rem 0;
+        padding: 1rem;
+    }
+
+    .team-photo {
+        width: 150px;
+        height: 150px;
+    }
+
+    /* Mission and values section */
+    .about-content {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .about-left, .about-right {
+        width: 100%;
+        padding: 1rem 0;
+    }
+
+    /* Footer adjustments */
+    .footer-content {
+        flex-direction: column;
+        padding: 1.5rem 1rem;
+    }
+
+    .footer-section {
+        width: 100%;
+        margin: 1rem 0;
+        text-align: center;
+    }
+
+    /* Form elements */
+    input, textarea {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    /* Button sizing */
+    .cta-button {
+        width: 100%;
+        padding: 0.8rem;
+        margin: 0.5rem 0;
+        text-align: center;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    /* Further text size reduction */
+    body {
+        font-size: 14px;
+    }
+
+    .header-logo img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .logo {
+        font-size: 1rem;
+    }
+
+    /* Tighter spacing */
+    .content {
+        padding: 0.8rem;
+    }
+
+    .team-photo {
+        width: 120px;
+        height: 120px;
+    }
+
+    /* Stack all grid items */
+    .team-grid,
+    .services-grid,
+    .resources-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    /* Adjust headings */
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.3rem; }
+    h4 { font-size: 1.1rem; }
+
+    /* Tighter padding */
+    .page-header {
+        padding: 0.8rem 0;
+    }
+
+    .footer-content {
+        padding: 1rem 0.8rem;
     }
 }
