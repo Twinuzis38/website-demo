@@ -130,69 +130,67 @@ document.querySelectorAll('button, .cta-button').forEach(button => {
 });
 
 // Mobile menu toggle with animation
-const createMobileMenu = () => {
-    const nav = document.querySelector('nav');
-    const navLinks = document.querySelector('.nav-links');
-    
-    const menuButton = document.createElement('button');
-    menuButton.className = 'mobile-menu-button';
-    menuButton.innerHTML = '☰';
-    menuButton.setAttribute('aria-label', 'Toggle menu');
-    
-    nav.insertBefore(menuButton, navLinks);
-    
-    menuButton.addEventListener('click', () => {
+const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+if (mobileMenuToggle && navLinks) {
+    mobileMenuToggle.addEventListener('click', () => {
         navLinks.classList.toggle('show');
-        menuButton.setAttribute('aria-expanded', 
-            menuButton.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'
+        mobileMenuToggle.classList.toggle('open'); // For hamburger animation
+        mobileMenuToggle.setAttribute('aria-expanded',
+            navLinks.classList.contains('show') ? 'true' : 'false'
         );
     });
-};
 
-// Initialize mobile menu on small screens
-if (window.innerWidth <= 768) {
-    createMobileMenu();
-}
-
-// Handle window resize
-window.addEventListener('resize', () => {
-    if (window.innerWidth <= 768) {
-        if (!document.querySelector('.mobile-menu-button')) {
-            createMobileMenu();
-        }
-    } else {
-        const menuButton = document.querySelector('.mobile-menu-button');
-        if (menuButton) {
-            menuButton.remove();
-        }
-        document.querySelector('.nav-links').classList.remove('show');
-    }
-}); 
-
-// Handle dropdown menus in mobile view
-const handleDropdowns = () => {
-    const dropdowns = document.querySelectorAll('.dropdown');
-    
-    dropdowns.forEach(dropdown => {
-        const link = dropdown.querySelector('a');
-        
-        link.addEventListener('click', (e) => {
-            if (window.innerWidth <= 768) {
-                e.preventDefault();
-                dropdown.classList.toggle('active');
+    // Close menu when a link is clicked (optional, but good for UX)
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 768) { // Only close on mobile
+                navLinks.classList.remove('show');
+                mobileMenuToggle.classList.remove('open');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
             }
         });
     });
-};
+}
 
-// Initialize dropdowns
-handleDropdowns();
+// Handle dropdown menus in mobile view
+const dropdowns = document.querySelectorAll('.dropdown');
 
-// Update dropdowns on window resize
+dropdowns.forEach(dropdown => {
+    const link = dropdown.querySelector('a');
+    
+    link.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+            e.preventDefault();
+            dropdown.classList.toggle('active');
+        }
+    });
+});
+
+// Close mobile menu and dropdowns if window is resized above mobile breakpoint
 window.addEventListener('resize', () => {
     if (window.innerWidth > 768) {
+        if (navLinks) {
+            navLinks.classList.remove('show');
+        }
+        if (mobileMenuToggle) {
+            mobileMenuToggle.classList.remove('open');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        }
         document.querySelectorAll('.dropdown').forEach(dropdown => {
             dropdown.classList.remove('active');
+        });
+    }
+});
+
+// Background logo scroll animation
+document.addEventListener('DOMContentLoaded', function() {
+    const floatingLogo = document.querySelector('.floating-logo');
+    if (floatingLogo) {
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            floatingLogo.style.transform = `translate(-50%, -50%) translate(${scrolled * 0.05}px, ${scrolled * 0.1}px) rotate(${scrolled * 0.01}deg)`;
         });
     }
 }); 
