@@ -131,23 +131,21 @@ document.querySelectorAll('button, .cta-button').forEach(button => {
 
 // Mobile menu toggle with animation
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile menu functionality
+    // Mobile navigation functionality
     const mobileMenuButton = document.querySelector('.mobile-menu-toggle');
     const navLinks = document.querySelector('.nav-links');
     const header = document.querySelector('header');
     let isMenuOpen = false;
-    let lastScrollTop = 0;
 
-    // Function to lock/unlock body scroll
-    function toggleBodyScroll(lock) {
-        if (lock) {
-            document.body.style.overflow = 'hidden';
+    // Function to prevent body scroll
+    function preventBodyScroll(prevent) {
+        if (prevent) {
+            const scrollY = window.scrollY;
             document.body.style.position = 'fixed';
             document.body.style.width = '100%';
-            document.body.style.top = `-${window.scrollY}px`;
+            document.body.style.top = `-${scrollY}px`;
         } else {
             const scrollY = document.body.style.top;
-            document.body.style.overflow = '';
             document.body.style.position = '';
             document.body.style.width = '';
             document.body.style.top = '';
@@ -157,21 +155,48 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Function to close menu
     function closeMenu() {
-        navLinks.classList.remove('show');
-        mobileMenuButton.classList.remove('open');
-        isMenuOpen = false;
-        toggleBodyScroll(false);
+        if (isMenuOpen) {
+            navLinks.classList.remove('show');
+            mobileMenuButton.classList.remove('open');
+            isMenuOpen = false;
+            preventBodyScroll(false);
+
+            // Reset all dropdowns
+            document.querySelectorAll('.dropdown').forEach(dropdown => {
+                dropdown.classList.remove('active');
+            });
+        }
+    }
+
+    // Function to open menu
+    function openMenu() {
+        if (!isMenuOpen) {
+            navLinks.classList.add('show');
+            mobileMenuButton.classList.add('open');
+            isMenuOpen = true;
+            preventBodyScroll(true);
+        }
     }
 
     if (mobileMenuButton && navLinks) {
-        // Handle menu button click
+        // Mobile menu button click
         mobileMenuButton.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
-            isMenuOpen = !isMenuOpen;
-            navLinks.classList.toggle('show');
-            mobileMenuButton.classList.toggle('open');
-            toggleBodyScroll(isMenuOpen);
+            
+            if (isMenuOpen) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        });
+
+        // Handle clicks on menu items
+        navLinks.addEventListener('click', function(e) {
+            const link = e.target.closest('a');
+            if (link && !link.parentElement.classList.contains('dropdown')) {
+                closeMenu();
+            }
         });
 
         // Close menu when clicking outside
@@ -181,57 +206,69 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Handle touch events
-        let touchStartY = 0;
-        let touchEndY = 0;
-
-        navLinks.addEventListener('touchstart', function(e) {
-            touchStartY = e.touches[0].clientY;
-        }, { passive: true });
-
-        navLinks.addEventListener('touchmove', function(e) {
-            touchEndY = e.touches[0].clientY;
-            const scrollTop = this.scrollTop;
-            const scrollHeight = this.scrollHeight;
-            const height = this.clientHeight;
-            const delta = touchStartY - touchEndY;
-
-            if ((scrollTop <= 0 && delta < 0) || (scrollTop + height >= scrollHeight && delta > 0)) {
-                e.preventDefault();
+        // Handle dropdowns
+        const dropdowns = document.querySelectorAll('.dropdown');
+        dropdowns.forEach(dropdown => {
+            const link = dropdown.querySelector('a');
+            if (link) {
+                link.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Close other dropdowns
+                        dropdowns.forEach(d => {
+                            if (d !== dropdown) {
+                                d.classList.remove('active');
+                            }
+                        });
+                        
+                        // Toggle current dropdown
+                        dropdown.classList.toggle('active');
+                    }
+                });
             }
-        }, { passive: false });
+        });
 
-        // Handle iOS Safari address bar hiding
-        let vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
-
-        window.addEventListener('resize', () => {
-            vh = window.innerHeight * 0.01;
-            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        // Handle dropdown links
+        const dropdownLinks = document.querySelectorAll('.dropdown-content a');
+        dropdownLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    closeMenu();
+                }
+            });
         });
     }
 
-    // Handle dropdowns in mobile menu
-    const dropdowns = document.querySelectorAll('.dropdown');
-    dropdowns.forEach(dropdown => {
-        const link = dropdown.querySelector('a');
-        if (link) {
-            link.addEventListener('click', function(e) {
-                if (window.innerWidth <= 768) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    this.parentElement.classList.toggle('active');
-                }
-            });
+    // Close menu on window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            closeMenu();
         }
     });
 
     // Close menu on orientation change
     window.addEventListener('orientationchange', function() {
-        if (isMenuOpen) {
-            setTimeout(closeMenu, 100);
-        }
+        closeMenu();
     });
+
+    // Handle iOS Safari viewport height issue
+    function updateMobileHeight() {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+
+    updateMobileHeight();
+    window.addEventListener('resize', updateMobileHeight);
+    window.addEventListener('orientationchange', updateMobileHeight);
+
+    // Prevent touchmove on iOS when menu is open
+    document.addEventListener('touchmove', function(e) {
+        if (isMenuOpen && !navLinks.contains(e.target)) {
+            e.preventDefault();
+        }
+    }, { passive: false });
 
     // Handle iOS keyboard issues
     const inputs = document.querySelectorAll('input, textarea');
@@ -244,36 +281,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         block: 'center'
                     });
                 }, 300);
-            }
-        });
-
-        input.addEventListener('blur', function() {
-            window.scrollTo(0, window.scrollY);
-        });
-    });
-
-    // Smooth scroll handling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if (href !== '#') {
-                e.preventDefault();
-                const target = document.querySelector(href);
-                if (target) {
-                    if (isMenuOpen) {
-                        closeMenu();
-                    }
-                    setTimeout(() => {
-                        const headerOffset = header.offsetHeight;
-                        const elementPosition = target.offsetTop;
-                        const offsetPosition = elementPosition - headerOffset;
-
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: 'smooth'
-                        });
-                    }, isMenuOpen ? 300 : 0);
-                }
             }
         });
     });
