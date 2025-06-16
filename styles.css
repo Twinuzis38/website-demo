@@ -1,8 +1,109 @@
+/* CSS Reset for consistent cross-browser rendering */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Remove default margin and padding */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, figure, ol, ul, dl,
+dd, dt {
+    margin: 0;
+    padding: 0;
+}
+
+/* Remove list styles */
+ul, ol {
+    list-style: none;
+}
+
+/* Remove default styles from links */
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+/* Make images responsive by default */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Remove default button styles */
+button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font: inherit;
+    color: inherit;
+}
+
+/* Remove default input styles */
+input, textarea, select {
+    font: inherit;
+    color: inherit;
+}
+
+/* Improve media defaults */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
 /* Reset and base styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--soft-white);
+    overflow-x: hidden;
+    width: 100%;
+    min-height: 100vh;
 }
 
 :root {
@@ -39,50 +140,124 @@
     --container-max-width: 1200px;
 }
 
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: var(--line-height-base);
-    color: var(--text-primary);
-    background-color: var(--soft-white);
+/* Base container styles */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+/* Text content wrapper */
+.text-wrapper {
+    max-width: 100%;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Ensure all text containers handle overflow properly */
+.content-section,
+.text-content,
+.about-content,
+.service-content,
+.team-content {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+/* Mobile-specific container adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 0.8rem;
+        width: 95%;
+    }
+
+    .text-wrapper {
+        padding: 0 0.5rem;
+    }
+
+    /* Ensure proper text flow on mobile */
+    .content-section,
+    .text-content,
+    .about-content,
+    .service-content,
+    .team-content {
+        padding: 0.5rem;
+        margin: 0.5rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0.5rem;
+        width: 98%;
+    }
+
+    .text-wrapper {
+        padding: 0 0.3rem;
+    }
+}
+
+/* Responsive container */
+.content-container {
+    max-width: 1400px;
+    width: 95%;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
     overflow-x: hidden;
 }
 
+/* Responsive images */
 img {
     max-width: 100%;
     height: auto;
     display: block;
+    margin: 0 auto;
+    object-fit: contain;
 }
 
-/* General responsive adjustments */
+/* Responsive grid layouts */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+}
+
 @media (max-width: 768px) {
     :root {
-        --font-size-h1: 2.5rem;
-        --font-size-h2: 2rem;
-        --font-size-h3: 1.4rem;
         --font-size-base: 1rem;
-        --spacing-md: 1rem;
-        --spacing-lg: 2rem;
     }
 
     .content-container {
-        padding: 1.5rem;
+        width: 98%;
+        padding: 1rem;
         margin: 1rem auto;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
     }
 }
 
 @media (max-width: 480px) {
     :root {
-        --font-size-h1: 2rem;
-        --font-size-h2: 1.8rem;
-        --font-size-h3: 1.2rem;
         --font-size-base: 0.9rem;
-        --spacing-md: 0.8rem;
-        --spacing-lg: 1.5rem;
     }
 
     .content-container {
-        padding: 1rem;
+        width: 100%;
+        padding: 0.75rem;
         margin: 0.5rem auto;
+        border-radius: 8px;
     }
 }
 
@@ -1539,88 +1714,188 @@ footer::before {
 
 /* Mobile menu button */
 .mobile-menu-toggle {
-    display: none; /* Hidden by default */
-    flex-direction: column;
-    justify-content: space-around;
+    display: none;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 9999; /* Ensure it's above everything */
     width: 30px;
-    height: 25px;
-    background: transparent;
+    height: 24px;
+    background: white;
     border: none;
     cursor: pointer;
-    padding: 0;
-    z-index: 2000;
+    padding: 0.5rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.mobile-menu-toggle .hamburger {
+.hamburger {
+    display: block;
     width: 100%;
     height: 3px;
-    background: var(--text-primary); /* Adjust color as needed */
-    border-radius: 10px;
-    transition: all 0.3s linear;
-    position: relative;
-    transform-origin: 1px;
-}
-
-.mobile-menu-toggle.open .hamburger:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.mobile-menu-toggle.open .hamburger:nth-child(2) {
-    opacity: 0;
-    transform: translateX(-20px);
-}
-
-.mobile-menu-toggle.open .hamburger:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
+    background-color: #1E3A8A;
+    margin: 3px 0;
+    transition: all 0.3s ease-in-out;
 }
 
 @media (max-width: 768px) {
-    nav {
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 1rem 1.5rem;
-    }
-
-    .logo {
-        font-size: 1.5rem;
-    }
-
     .mobile-menu-toggle {
-        display: flex; /* Show on mobile */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
     }
 
-    .nav-links {
+    /* Ensure the button is visible on all backgrounds */
+    .mobile-menu-toggle::before {
+        content: '';
         position: absolute;
-        top: 60px; /* Adjust based on header height */
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        background: white;
+        border-radius: 6px;
+        z-index: -1;
+    }
+
+    .mobile-menu-toggle.open .hamburger:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .mobile-menu-toggle.open .hamburger:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-menu-toggle.open .hamburger:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Ensure nav links are above form elements */
+    .nav-links {
+        position: fixed;
+        top: 0;
         left: 0;
         width: 100%;
-        background: white; /* Or a darker color if preferred */
+        height: 100vh;
+        background: white;
+        z-index: 9998;
+        padding-top: 80px;
+        display: none;
         flex-direction: column;
         align-items: center;
-        padding: 1rem 0;
-        border-top: 1px solid #eee;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        transform: translateY(-100%); /* Hide by default */
-        opacity: 0;
-        pointer-events: none;
-        transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .nav-links.show {
-        transform: translateY(0); /* Show when active */
-        opacity: 1;
-        pointer-events: auto;
+        display: flex;
+    }
+}
+
+/* Ensure form elements don't overlap with navigation */
+.contact-form,
+.form-group,
+input,
+textarea,
+select,
+button {
+    position: relative;
+    z-index: 1;
+}
+
+/* Mobile Navigation and Layout Fixes */
+@media (max-width: 768px) {
+    /* Essential resets for mobile */
+    * {
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+    }
+
+    /* Header and Navigation */
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: white;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    nav {
+        padding: 0.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .header-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        z-index: 1001;
+    }
+
+    .header-logo img {
+        width: 40px;
+        height: 40px;
+        margin: 0;
+    }
+
+    .logo {
+        font-size: 1rem;
+        white-space: nowrap;
+        max-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* Mobile Menu Button */
+    .mobile-menu-toggle {
+        display: block;
+        z-index: 1001;
+        background: none;
+        border: none;
+        padding: 0.5rem;
+        margin-left: auto;
+    }
+
+    /* Navigation Links */
+    .nav-links {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background: white;
+        padding: 1rem;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .nav-links.show {
+        transform: translateX(0);
     }
 
     .nav-links li {
+        display: block;
+        margin: 1rem 0;
         width: 100%;
-        text-align: center;
-        margin: 0.5rem 0;
     }
 
-    .nav-links li a {
+    .nav-links a {
         display: block;
-        padding: 0.8rem 0;
+        padding: 0.8rem;
         font-size: 1.1rem;
         color: var(--text-primary);
     }
@@ -1764,12 +2039,14 @@ footer::before {
 /* Navigating Health Section Styles */
 .content-container {
     max-width: 1400px;
+    width: 95%;
     margin: 2rem auto;
-    padding: 3rem;
+    padding: 2rem;
     background-color: white;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border: 1px solid #e0e0e0;
+    overflow-x: hidden;
 }
 
 .section h3 {
@@ -3661,11 +3938,12 @@ h4 {
 
     /* Images and Media */
     img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-    }
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+}
 
     .team-photo {
         width: 120px;
@@ -4166,5 +4444,395 @@ h4 {
     .dropdown-content a {
         padding: 10px 15px;
         font-size: 14px;
+    }
+}
+
+/* Mobile Navigation Styles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 2rem;
+        gap: 1.5rem;
+        z-index: 1000;
+        overflow-y: auto;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 1rem;
+        width: 100%;
+        font-size: 1.1rem;
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001;
+    }
+
+    .hamburger {
+        width: 30px;
+        height: 3px;
+        background-color: var(--text-primary);
+        transition: all 0.3s ease;
+    }
+
+    .mobile-menu-toggle.open .hamburger:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .mobile-menu-toggle.open .hamburger:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-menu-toggle.open .hamburger:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* Dropdown adjustments for mobile */
+    .dropdown-content {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        background-color: #f8f9fa;
+        display: none;
+        padding: 0;
+    }
+
+    .dropdown.active .dropdown-content {
+        display: block;
+    }
+
+    .dropdown-content a {
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+}
+
+/* Mobile-friendly buttons and interactive elements */
+@media (max-width: 768px) {
+    button,
+    .cta-button,
+    .nav-links a,
+    .dropdown-toggle {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 12px 20px;
+        touch-action: manipulation;
+    }
+
+    /* Improved form elements for touch */
+    input,
+    textarea,
+    select {
+        font-size: 16px; /* Prevents iOS zoom on focus */
+        padding: 12px;
+        margin-bottom: 16px;
+        border-radius: 8px;
+        width: 100%;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    select {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23333'%3E%3Cpath d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        padding-right: 36px;
+    }
+
+    /* Touch-friendly card layouts */
+    .card,
+    .service-card,
+    .team-card,
+    .blog-card {
+        padding: 16px;
+        margin-bottom: 16px;
+        border-radius: 12px;
+        touch-action: manipulation;
+    }
+
+    /* Improved spacing for touch targets */
+    .nav-links li,
+    .footer-links li {
+        margin-bottom: 8px;
+    }
+
+    /* Better touch feedback */
+    a:active,
+    button:active,
+    .cta-button:active {
+        opacity: 0.7;
+        transform: scale(0.98);
+    }
+}
+
+/* Additional mobile optimizations */
+@media (max-width: 480px) {
+    /* Adjust font sizes for better readability */
+    body {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    h1 { font-size: 24px; line-height: 1.3; margin-bottom: 16px; }
+    h2 { font-size: 22px; line-height: 1.3; margin-bottom: 14px; }
+    h3 { font-size: 20px; line-height: 1.3; margin-bottom: 12px; }
+    h4 { font-size: 18px; line-height: 1.3; margin-bottom: 10px; }
+    
+    /* Optimize images for mobile */
+    img {
+        max-height: 70vh;
+        width: auto;
+        margin: 0 auto;
+    }
+
+    /* Adjust grid layouts */
+    .grid,
+    .team-grid,
+    .services-grid,
+    .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 0 8px;
+    }
+
+    /* Optimize tables for mobile */
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        margin: 16px 0;
+    }
+}
+
+/* Text container improvements for mobile */
+@media (max-width: 768px) {
+    .content-container {
+        width: 92%;
+        padding: 1rem;
+        margin: 1rem auto;
+        overflow: visible;
+    }
+
+    /* Improve text readability and prevent cutoff */
+    p, .text-content {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 1.2em;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+        padding: 0 0.5rem;
+    }
+
+    /* Ensure headings don't get cut off */
+    h1, h2, h3, h4, h5, h6 {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+        padding: 0 0.5rem;
+    }
+
+    /* Adjust card and content box spacing */
+    .card, 
+    .service-card, 
+    .team-card, 
+    .blog-card,
+    .content-box {
+        padding: 1rem;
+        margin-bottom: 1.2rem;
+        width: 100%;
+        box-sizing: border-box;
+        overflow: visible;
+    }
+
+    /* Fix list item text wrapping */
+    li {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        margin-bottom: 0.8em;
+        padding-right: 1rem;
+    }
+}
+
+/* Additional fixes for smaller screens */
+@media (max-width: 480px) {
+    .content-container {
+        width: 96%;
+        padding: 0.8rem;
+    }
+
+    p, .text-content {
+        font-size: 15px;
+        line-height: 1.5;
+        margin-bottom: 1em;
+        padding: 0 0.3rem;
+    }
+
+    /* Adjust container margins and padding */
+    .container,
+    .section-container {
+        padding: 0.5rem;
+        margin: 0.5rem auto;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Ensure images don't cause overflow */
+    img {
+        max-width: 100%;
+        height: auto;
+        margin: 0.5rem auto;
+    }
+}
+
+/* Mission section and text content fixes */
+.mission-content,
+.text-content,
+p {
+    hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    word-break: normal;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+/* Card content fixes */
+.card-content,
+.mission-card,
+.about-card {
+    width: 100%;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-sizing: border-box;
+}
+
+/* Mobile text adjustments */
+@media (max-width: 768px) {
+    .mission-content,
+    .text-content,
+    p {
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        width: 100%;
+        text-align: left;
+        word-spacing: normal;
+    }
+
+    .card-content,
+    .mission-card,
+    .about-card {
+        padding: 1rem;
+        margin: 0.5rem 0;
+    }
+
+    /* Fix text wrapping in cards */
+    .card h2,
+    .card h3,
+    .card p {
+        width: 100%;
+        white-space: normal;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        padding: 0;
+    }
+}
+
+/* Smaller screen optimizations */
+@media (max-width: 480px) {
+    .mission-content,
+    .text-content,
+    p {
+        padding: 0.3rem;
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    .card-content,
+    .mission-card,
+    .about-card {
+        padding: 0.8rem;
+    }
+}
+
+.mission-section {
+    padding: 2rem 1rem;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.mission-section h2 {
+    margin-bottom: 1.5rem;
+    text-align: left;
+    width: 100%;
+}
+
+.mission-text {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+}
+
+@media (max-width: 768px) {
+    .mission-section {
+        padding: 1.5rem 1rem;
+    }
+
+    .mission-text {
+        font-size: 15px;
+        line-height: 1.5;
+        padding: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .mission-section {
+        padding: 1rem 0.8rem;
+    }
+
+    .mission-text {
+        font-size: 14px;
+        padding: 0;
+        margin-bottom: 1rem;
     }
 }
