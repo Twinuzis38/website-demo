@@ -776,111 +776,142 @@ section h2 {
 
 .about-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 20px;
 }
 
 .about-left, .about-right {
     display: flex;
     flex-direction: column;
     gap: 30px;
+    width: 100%;
 }
 
-.mission-statement {
-    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-    border-radius: 15px;
-    padding: 35px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(52, 152, 219, 0.1);
+/* Timeline item (Values section) styling */
+.timeline-item {
+    padding: 2rem;
+    background: var(--soft-white);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    order: 1; /* Set default order */
 }
 
-.mission-statement h3 {
-    color: #2c3e50;
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    position: relative;
-    padding-bottom: 15px;
-}
-
-.mission-statement h3:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(to right, #3498db, #2ecc71);
-    border-radius: 2px;
-}
-
-.mission-statement p {
-    color: #4a4a4a;
-    line-height: 1.8;
-    font-size: 1.1rem;
-}
-
+/* Overview content (Who We Are section) styling */
 .overview-content {
     background: #ffffff;
     border-radius: 15px;
-    padding: 35px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(52, 152, 219, 0.1);
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    order: 2; /* Set default order */
 }
 
-.overview-content h3 {
-    color: #2c3e50;
+/* Mission statement styling */
+.mission-statement {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    order: 0; /* Set default order */
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 1rem;
+    }
+
+    .about-left, .about-right {
+        gap: 2rem;
+    }
+
+    /* Ensure specific order on mobile */
+    .mission-statement {
+        order: 0;
+    }
+
+    .timeline-item {
+        order: 1;
+    }
+
+    .overview-content {
+        order: 2;
+    }
+}
+
+.mission-statement h3, .overview-content h3 {
+    color: var(--deep-blue);
     font-size: 1.8rem;
-    margin-bottom: 20px;
+    margin-bottom: 1.5rem;
     position: relative;
-    padding-bottom: 15px;
+    padding-bottom: 1rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.overview-content h3:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(to right, #3498db, #2ecc71);
-    border-radius: 2px;
-}
-
-.overview-content p {
-    color: #4a4a4a;
+.mission-statement p, .overview-content p {
+    color: var(--text-primary);
     line-height: 1.8;
     font-size: 1.1rem;
-    margin-bottom: 25px;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .goals-list {
     list-style: none;
     padding: 0;
-    margin: 25px 0;
+    margin: 1.5rem 0;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .goals-list li {
-    padding: 12px 0 12px 30px;
-    color: #4a4a4a;
+    padding: 0.8rem 0;
+    color: var(--text-primary);
     line-height: 1.6;
     position: relative;
+    padding-left: 1.5rem;
     font-size: 1.1rem;
-    border-bottom: 1px solid rgba(52, 152, 219, 0.1);
-}
-
-.goals-list li:last-child {
-    border-bottom: none;
+    margin-bottom: 0.5rem;
 }
 
 .goals-list li:before {
-    content: "→";
-    color: #3498db;
+    content: "•";
+    color: var(--teal);
     position: absolute;
     left: 0;
-    font-size: 1.2em;
+    font-size: 1.4em;
+    line-height: 1;
+}
+
+@media (max-width: 768px) {
+    .mission-statement, .overview-content {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .mission-statement h3, .overview-content h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .mission-statement p, .overview-content p {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+    }
+
+    .goals-list li {
+        padding: 0.6rem 0;
+        padding-left: 1.2rem;
+        font-size: 1rem;
+    }
 }
 
 .timeline-item {
@@ -1198,7 +1229,7 @@ section h2 {
 /* About section */
 .about-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 30px;
     padding: 20px;
 }
@@ -4834,5 +4865,195 @@ p {
         font-size: 14px;
         padding: 0;
         margin-bottom: 1rem;
+    }
+}
+
+/* Team grid layout */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.team-member {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+/* Mobile-specific team layout */
+@media (max-width: 768px) {
+    .team-grid,
+    .founders-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+
+    .team-member {
+        width: 100%;
+        margin: 0 auto 1.5rem;
+        padding: 1rem;
+    }
+
+    .meet-the-team-section > h3,
+    .meet-the-founders h4,
+    .meet-the-quality-reviewer h4,
+    .meet-writing-team h4,
+    .meet-data-collection-team h4,
+    .meet-social-media-coordinator h4,
+    .meet-pamphlet-designer h4,
+    .meet-it-team h4 {
+        padding: 0 1rem;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+    }
+
+    .team-photo {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 1rem;
+    }
+
+    .team-member h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .team-member p {
+        font-size: 1rem;
+        color: #666;
+    }
+}
+
+/* Even smaller screens */
+@media (max-width: 480px) {
+    .team-grid,
+    .founders-grid {
+        gap: 1rem;
+        padding: 0 0.5rem;
+    }
+
+    .team-member {
+        padding: 0.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .team-photo {
+        width: 120px;
+        height: 120px;
+    }
+
+    .team-member h3 {
+        font-size: 1.1rem;
+    }
+
+    .team-member p {
+        font-size: 0.9rem;
+    }
+}
+
+.team-section-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.meet-the-founders,
+.meet-the-quality-reviewer,
+.meet-writing-team,
+.meet-data-collection-team,
+.meet-social-media-coordinator,
+.meet-pamphlet-designer,
+.meet-it-team {
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    .team-section-wrapper {
+        padding: 0.5rem;
+        gap: 1.5rem;
+    }
+
+    .meet-the-founders,
+    .meet-the-quality-reviewer,
+    .meet-writing-team,
+    .meet-data-collection-team,
+    .meet-social-media-coordinator,
+    .meet-pamphlet-designer,
+    .meet-it-team {
+        margin-bottom: 1.5rem;
+    }
+
+    .meet-the-team-section {
+        padding: 1rem 0;
+    }
+
+    .team-grid {
+        margin: 1rem 0;
+    }
+
+    .team-member {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-section-wrapper {
+        padding: 0.3rem;
+        gap: 1rem;
+    }
+
+    .meet-the-founders,
+    .meet-the-quality-reviewer,
+    .meet-writing-team,
+    .meet-data-collection-team,
+    .meet-social-media-coordinator,
+    .meet-pamphlet-designer,
+    .meet-it-team {
+        margin-bottom: 1rem;
+    }
+
+    .team-grid {
+        margin: 0.8rem 0;
+    }
+}
+
+.highlight-box {
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 102, 204, 0.1);
+}
+
+.highlight-box p {
+    margin: 0;
+    padding: 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+    .highlight-box {
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .highlight-box p {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin: 0;
+        padding: 0;
     }
 }

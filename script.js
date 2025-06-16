@@ -160,27 +160,35 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Handle dropdowns on mobile
-    dropdowns.forEach(dropdown => {
-        const link = dropdown.querySelector('a');
-        
-        if (link) {
-            link.addEventListener('click', function(e) {
-                if (window.innerWidth <= 768) {
+    // Handle all navigation links
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const isDropdownParent = this.parentElement.classList.contains('dropdown');
+            
+            if (window.innerWidth <= 768) {
+                if (isDropdownParent) {
                     e.preventDefault();
                     e.stopPropagation();
                     
                     // Close other dropdowns
                     dropdowns.forEach(other => {
-                        if (other !== dropdown) {
+                        if (other !== this.parentElement) {
                             other.classList.remove('active');
                         }
                     });
                     
-                    dropdown.classList.toggle('active');
+                    this.parentElement.classList.toggle('active');
+                } else {
+                    // For non-dropdown links, close the menu
+                    mobileMenuToggle.classList.remove('open');
+                    navLinks.classList.remove('show');
+                    body.style.overflow = '';
+                    
+                    // Close all dropdowns
+                    dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
                 }
-            });
-        }
+            }
+        });
     });
 
     // Close menu when clicking outside
@@ -218,17 +226,6 @@ document.addEventListener('DOMContentLoaded', function() {
     navLinks.addEventListener('touchmove', function(e) {
         e.stopPropagation();
     }, { passive: true });
-
-    // Close menu when clicking a link
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', function() {
-            if (window.innerWidth <= 768 && !this.parentElement.classList.contains('dropdown')) {
-                mobileMenuToggle.classList.remove('open');
-                navLinks.classList.remove('show');
-                body.style.overflow = '';
-            }
-        });
-    });
 
     // Handle iOS keyboard issues
     const inputs = document.querySelectorAll('input, textarea');

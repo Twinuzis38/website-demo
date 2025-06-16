@@ -626,6 +626,7 @@
         </div>
     </footer>
 
+    <script src="script.js"></script>
     <script>
         function toggleVolunteerForm() {
             const formSection = document.getElementById('volunteerFormSection');
@@ -650,25 +651,12 @@
                 return;
             }
             
-            // Convert FormData to object for logging (excluding file for clarity)
-            const data = {};
-            formData.forEach((value, key) => {
-                if (key !== 'resume') {
-                    data[key] = value;
-                }
-            });
-            
-            // Here you would typically send this data to your backend
-            console.log('Form submitted:', data);
-            console.log('Resume file:', resumeFile.name);
-            
-            // Show success message
-            alert('Thank you for your interest in volunteering with EHLP! We will review your application and contact you soon.');
+            // Here you would typically send the form data to your server
+            console.log('Form submitted:', Object.fromEntries(formData));
+            alert('Thank you for your application! We will contact you soon.');
             
             // Reset form
             event.target.reset();
-            
-            // Hide form
             toggleVolunteerForm();
         }
     </script>
