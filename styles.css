@@ -3291,6 +3291,22 @@ h4 {
     margin: 2rem 0;
 }
 
+@media (max-width: 768px) {
+    .bottom-grid {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .bottom-grid .service-card {
+        order: 1;
+        margin-bottom: 1.5rem;
+    }
+
+    .bottom-grid .info-column {
+        order: 2;
+    }
+}
+
 .info-column {
     display: flex;
     flex-direction: column;
@@ -5032,9 +5048,26 @@ p {
     margin: 2rem 0;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     border: 1px solid rgba(0, 102, 204, 0.1);
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.highlight-box p {
+.highlight-section {
+    margin-bottom: 1.5rem;
+}
+
+.highlight-section:last-child {
+    margin-bottom: 0;
+}
+
+.highlight-section h4 {
+    color: var(--deep-blue);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.highlight-section p {
     margin: 0;
     padding: 0;
     font-size: 1.1rem;
@@ -5042,18 +5075,41 @@ p {
     color: var(--text-primary);
 }
 
+.highlight-divider {
+    height: 1px;
+    background: rgba(0, 102, 204, 0.1);
+    margin: 2rem 0;
+}
+
 @media (max-width: 768px) {
-    .highlight-box {
-        padding: 1.5rem;
-        margin: 1.5rem 0;
-        width: 100%;
-        box-sizing: border-box;
+    .content-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1rem;
     }
 
-    .highlight-box p {
+    .highlight-box {
+        padding: 1.5rem;
+        margin: 1rem 0;
+        order: 2; /* Ensure it appears after the navigation support box */
+    }
+
+    .highlight-section {
+        margin-bottom: 1.2rem;
+    }
+
+    .highlight-section h4 {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .highlight-section p {
         font-size: 1rem;
         line-height: 1.5;
-        margin: 0;
-        padding: 0;
+    }
+
+    .highlight-divider {
+        margin: 1.5rem 0;
     }
 }
