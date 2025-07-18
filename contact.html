@@ -91,6 +91,26 @@
                 font-size: 16px; /* Prevents zoom on iOS */
             }
         }
+        .google-form-wrapper {
+            width: 100%;
+            max-width: 640px;
+            margin: auto;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+            @media (max-width: 700px) {
+                .google-form-wrapper iframe {
+                width: 100% !important;
+                min-width: 0;
+                max-width: 100vw;
+                height: 500px;
+        }
+}
     </style>
 </head>
 <body>
@@ -166,8 +186,11 @@
                     <a href="https://instagram.com/ehlpofficial" target="_blank">@ehlpofficial</a></p>
                 </div>
             </div>
-            <div class="contact-section">
-                <form class="contact-form">
+            <div class="contact-section"> 
+                <div class="google-form-wrapper">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSenvTuHf5ypzXxBCBX0W9bxEyZ22hdVfwKD7w810GHYAfu00g/viewform?embedded=true" width="640" height="640" frameborder="10" marginheight="0" marginwidth="0">Loading…</iframe>
+                </div>
+            <!--<form class="contact-form">
                     <div class="form-group">
                         <label for="name">Full Name</label>
                         <input type="text" id="name" name="name" required>
@@ -194,7 +217,7 @@
 
             <div class="blank-box bottom-box">
                 <p>Your information will be kept strictly confidential and will only be used for the purpose of responding to your inquiry. We are committed to protecting your privacy and will not share your personal details with any third parties without your consent.</p>
-            </div>
+            </div>-->
         </section>
     </main>
 
@@ -214,4 +237,4 @@
     </footer>
     <script src="script.js"></script>
 </body>
-</html> 
+</html>
