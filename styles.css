@@ -1743,6 +1743,13 @@ footer::before {
     font-size: 1rem;
 }
 
+.footer-vaughan-logo {
+    width: 220px;   /* or your preferred size */
+    height: auto;
+    vertical-align: middle;
+    margin-top: 10px;
+}
+
 /* Mobile menu button */
 .mobile-menu-toggle {
     display: none;
