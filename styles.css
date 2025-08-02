@@ -540,6 +540,7 @@ input:focus, textarea:focus, select:focus {
     color: var(--teal);
 }
 
+
 /* Social links animation */
 .social-links {
     display: flex;
@@ -1735,13 +1736,25 @@ footer::before {
     text-align: center;
     padding-top: 2rem;
     margin-top: 2rem;
+    margin-bottom: 1rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-bottom p {
     color: white;
     font-size: 1rem;
+    margin-bottom: 10px;
 }
+
+.footer-bottom img[alt="cityofvaughan"] {
+    width: 325px;   /* Adjust as needed */
+    height: auto;
+    display: block;
+    margin: 0.5rem auto 0 auto; /* Center the image, space above */
+    border: none;
+}
+
+
 
 /* Mobile menu button */
 .mobile-menu-toggle {
