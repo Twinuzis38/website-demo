@@ -2961,6 +2961,11 @@ h4 {
     box-shadow: 0 2px 10px rgba(44, 62, 80, 0.08);
 }
 
+/* Fine-tune Arshia's photo positioning */
+.arshia-photo {
+    object-position: center 20%;
+}
+
 @media (max-width: 768px) {
     .team-photo {
         width: 90px;
