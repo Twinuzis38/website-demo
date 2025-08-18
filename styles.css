@@ -2963,7 +2963,7 @@ h4 {
 
 /* Fine-tune Arshia's photo positioning */
 .arshia-photo {
-    object-position: center 20%;
+    object-position: center 80%;
 }
 
 @media (max-width: 768px) {
