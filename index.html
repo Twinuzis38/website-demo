@@ -9,6 +9,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <title>Home - Equity & Health Literacy Project</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Normalize.css for better cross-browser consistency -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="styles.css">
@@ -18,7 +20,7 @@
         body {
             background: linear-gradient(135deg, #f0f8ff, #e0f7fa);
             margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
             color: #2c3e50;
         }
 
@@ -202,42 +204,45 @@
 <body>
     <header>
         <nav>
-            <div class="header-logo" style="display: flex; align-items: center; gap: 1.5rem;">
+            <a href="index.html" class="header-logo" style="display: flex; align-items: center; gap: 1.5rem; text-decoration: none; color: inherit;">
                 <img src="Photos/LogoEHLP.png" alt="Equity & Health Literacy Project Logo" style="max-width: 64px; width: 64px; height: auto; margin-left: -32px;" />
                 <div class="logo">EHLP</div>
-            </div>
+            </a>
             <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
                 <span class="hamburger"></span>
                 <span class="hamburger"></span>
                 <span class="hamburger"></span>
             </button>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
                 <li class="dropdown">
-                    <a href="healthcourse.html">Our Course</a>
+                    <a href="#">Who we are ∨</a>
                     <ul class="dropdown-content">
-                        <li><a href="course-enroll.html">Course Enrollment</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="healthcourse.html">Our Programs/Course</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                <li><a href="about.html">About Us</a></li>
-                <li class="dropdown">
-                    <a href="navigating-health.html">Navigating Health In Ontario</a>
+                    <a href="course-enroll.html">Course Enrollment ∨</a>
                     <ul class="dropdown-content">
+                        <li><a href="pamphlet-distribution.html">Pamphlets</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="locations.html">Locations</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">News And Media ∨</a>
+                    <ul class="dropdown-content">
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="navigating-health.html">Navigating Health In Ontario</a></li>
                         <li><a href="financial-barriers.html">Financial Barriers</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="pamphlet-distribution.html">Pamphlets</a>
+                    <a href="contact.html">Contact Us ∨</a>
                     <ul class="dropdown-content">
-                        <li><a href="locations.html">Locations</a></li>
-                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="get-involved.html">Get Involved</a></li>
                     </ul>
                 </li>
-                <li><a href="research.html">Research and Advocacy</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="get-involved.html">Get Involved</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
             </ul>
         </nav>
     </header>
