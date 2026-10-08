@@ -291,6 +291,19 @@ export const AboutUs: React.FC = () => (
   </div>
 );
 
+// Paste each week's YouTube video ID (the part after "v=" in the watch URL) into `videoId`
+// and replace `description` with a short summary of that week's content.
+const FREE_COURSE_WEEKS: { week: number; videoId: string; description: string }[] = [
+  { week: 1, videoId: "", description: "Week 1 description coming soon." },
+  { week: 2, videoId: "", description: "Week 2 description coming soon." },
+  { week: 3, videoId: "", description: "Week 3 description coming soon." },
+  { week: 4, videoId: "", description: "Week 4 description coming soon." },
+  { week: 5, videoId: "", description: "Week 5 description coming soon." },
+  { week: 6, videoId: "", description: "Week 6 description coming soon." },
+  { week: 7, videoId: "", description: "Week 7 description coming soon." },
+  { week: 8, videoId: "", description: "Week 8 description coming soon." }
+];
+
 export const OurPrograms: React.FC = () => (
   <div className="bg-white">
     <PageHeader title="Our Programs" subtitle="Curriculum designed for real-world impact." />
@@ -320,6 +333,43 @@ export const OurPrograms: React.FC = () => (
         </div>
       </div>
     </div>
+
+    {/* Free 8 Week Course */}
+    <section className="bg-slate-50 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-emerald-900 mb-4">Our Free 8 Week Course</h2>
+          <div className="w-20 h-1 bg-cyan-500 mx-auto"></div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {FREE_COURSE_WEEKS.map(({ week, videoId, description }) => (
+            <div key={week} className="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden">
+              <div className="aspect-video bg-slate-200">
+                {videoId ? (
+                  <iframe
+                    className="w-full h-full"
+                    src={`https://www.youtube.com/embed/${videoId}`}
+                    title={`Week ${week} video`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                ) : (
+                  <div className="w-full h-full flex flex-col items-center justify-center text-slate-400">
+                    <i className="fab fa-youtube text-5xl mb-2"></i>
+                    <span className="text-sm">Week {week} video coming soon</span>
+                  </div>
+                )}
+              </div>
+              <div className="p-5">
+                <h3 className="text-xl font-bold text-emerald-900 mb-2">Week {week}</h3>
+                <p className="text-slate-600 text-sm leading-relaxed min-h-[3rem]">{description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   </div>
 );
 
