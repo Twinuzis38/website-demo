@@ -294,7 +294,7 @@ export const AboutUs: React.FC = () => (
 // Paste each week's YouTube video ID (the part after "v=" in the watch URL) into `videoId`
 // and replace `description` with a short summary of that week's content.
 const FREE_COURSE_WEEKS: { week: number; videoId: string; description: string }[] = [
-  { week: 1, videoId: "", description: "Week 1 description coming soon." },
+  { week: 1, videoId: "cij0z2U3Z9I", description: "Week 1 description coming soon." },
   { week: 2, videoId: "", description: "Week 2 description coming soon." },
   { week: 3, videoId: "", description: "Week 3 description coming soon." },
   { week: 4, videoId: "", description: "Week 4 description coming soon." },
@@ -338,7 +338,7 @@ export const OurPrograms: React.FC = () => (
     <section className="bg-slate-50 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-emerald-900 mb-4">Our Free 8 Week Course</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-emerald-900 mb-4">Our Free 11 Week Course</h2>
           <div className="w-20 h-1 bg-cyan-500 mx-auto"></div>
         </div>
 
@@ -351,7 +351,8 @@ export const OurPrograms: React.FC = () => (
                     className="w-full h-full"
                     src={`https://www.youtube.com/embed/${videoId}`}
                     title={`Week ${week} video`}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
                     allowFullScreen
                   ></iframe>
                 ) : (
