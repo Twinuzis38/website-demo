@@ -1,7 +1,6 @@
 import { GoogleGenAI } from "@google/genai";
 
-// Key is set in /config.js (loaded by index.html)
-const apiKey = (window as any).GEMINI_API_KEY || '';
+const apiKey = process.env.API_KEY || '';
 
 // Initialize the client
 const ai = new GoogleGenAI({ apiKey });
